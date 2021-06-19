@@ -1,0 +1,683 @@
+<?php 
+session_start();
+error_reporting(0);
+include('include/config.php');
+include('include/checklogin.php');
+check_login();
+        $_SESSION['exampage']="Practical";
+        $subject=$_SESSION['subject'];
+        $class=$_SESSION['class'];
+        $exampage=$_SESSION['exampage'];
+        $years=$_SESSION['year'];
+$sql=mysqli_query($con,"select dept_name from assignsubject where years='".$years."' AND class_name='".$class."' AND sub_name='".$subject."'");
+        $row=mysqli_fetch_array($sql);
+            $_SESSION['dept']=$row['dept_name'];
+            $dept=$_SESSION['dept'];
+$sql=mysqli_query($con,"SELECT * FROM subject s,comap_prac c where s.sub_id=c.sub_id AND s.years='".$years."' AND s.dept_name='".$dept."' AND s.sub_name='".$subject."'");
+if($row=mysqli_fetch_array($sql)){
+    $_SESSION['nofprac']=$row['nofprac'];
+    $_SESSION['marksof']=$row['outof'];
+}
+
+if (ISSET($_POST['submit'])) {
+    $_SESSION['exampage']="Practical";
+    $subject=$_SESSION['subject'];
+    $class=$_SESSION['class'];
+    $exampage=$_SESSION['exampage'];
+    $years=$_SESSION['year'];
+    $aj=0;
+    
+        $A1=$_POST['item_name0'];
+        $aj+=1;
+        $A2=$_POST['item_name1'];
+        $aj+=1;
+        $A3=$_POST['item_name2'];
+        $aj+=1;
+        $A4=$_POST['item_name3'];
+        $aj+=1;
+        $A5=$_POST['item_name4'];
+        $aj+=1;
+        $A6=$_POST['item_name5'];
+        $aj+=1;
+        $A7=$_POST['item_name6'];
+        $aj+=1;
+        $A8=$_POST['item_name7'];
+        $aj+=1;
+        $A9=$_POST['item_name8'];
+        $aj+=1;
+        $A10=$_POST['item_name9'];
+        $aj+=1;
+        $A11=$_POST['item_name10'];
+        $aj+=1;
+     if($aj<$_SESSION['nofprac']){
+        $A12=$_POST['item_name11'];
+        $aj+=1;
+     }
+     if($aj<$_SESSION['nofprac']){
+        $A13=$_POST['item_name12'];
+        $aj+=1;
+     }
+     if($aj<$_SESSION['nofprac']){
+        $A14=$_POST['item_name13'];
+        $aj+=1;
+     }
+     if($aj<$_SESSION['nofprac']){
+        $A15=$_POST['item_name14'];
+        $aj+=1;
+     }
+     if($aj<$_SESSION['nofprac']){
+        $A16=$_POST['item_name15'];
+        $aj+=1;
+     }
+     if($aj<$_SESSION['nofprac']){
+        $A17=$_POST['item_name16'];
+        $aj+=1;
+     }
+     if($aj<$_SESSION['nofprac']){
+        $A18=$_POST['item_name17'];
+        $aj+=1;
+     }
+     if($aj<$_SESSION['nofprac']){
+        $A19=$_POST['item_name18'];
+        $aj+=1;
+     }
+     if($aj<$_SESSION['nofprac']){
+        $A20=$_POST['item_name19'];
+        $aj+=1;
+     }
+     if($aj<$_SESSION['nofprac']){
+        $A21=$_POST['item_name20'];
+        $aj+=1;
+     }
+     if($aj<$_SESSION['nofprac']){
+        $A22=$_POST['item_name21'];
+        $aj+=1;
+     }
+     if($aj<$_SESSION['nofprac']){
+        $A23=$_POST['item_name22'];
+        $aj+=1;
+     }
+     if($aj<$_SESSION['nofprac']){
+        $A24=$_POST['item_name23'];
+        $aj+=1;
+     }
+     if($aj<$_SESSION['nofprac']){
+        $A25=$_POST['item_name24'];
+        $aj+=1;
+     }
+     if($aj<$_SESSION['nofprac']){
+        $A26=$_POST['item_name25'];
+        $aj+=1;
+     }
+     if($aj<$_SESSION['nofprac']){
+        $A27=$_POST['item_name26'];
+        $aj+=1;
+     }
+     if($aj<$_SESSION['nofprac']){
+        $A28=$_POST['item_name27'];
+        $aj+=1;
+     }
+     if($aj<$_SESSION['nofprac']){
+        $A29=$_POST['item_name28'];
+        $aj+=1;
+     }
+     if($aj<$_SESSION['nofprac']){
+        $A30=$_POST['item_name29'];
+        $aj+=1;
+     }
+     if($aj<$_SESSION['nofprac']){
+        $A31=$_POST['item_name30'];
+        $aj+=1;
+     }
+     if($aj<$_SESSION['nofprac']){
+        $A32=$_POST['item_name31'];
+        $aj+=1;
+     }
+     if($aj<$_SESSION['nofprac']){
+        $A33=$_POST['item_name32'];
+        $aj+=1;
+     }
+     if($aj<$_SESSION['nofprac']){
+        $A34=$_POST['item_name33']; 
+        $aj+=1;
+     }
+     if($aj<$_SESSION['nofprac']){
+        $A35=$_POST['item_name34']; 
+        $aj+=1;
+     }
+        $i=0;
+        $aj=0;
+    
+    $sql=mysqli_query($con,"select dept_name from assignsubject where years='".$years."' AND class_name='".$class."' AND sub_name='".$subject."'");
+        $row=mysqli_fetch_array($sql);
+            $_SESSION['dept']=$row['dept_name'];
+            $dept=$_SESSION['dept'];
+$sql1=mysqli_query($con,"SELECT * FROM subject s,comap_prac c where s.sub_id=c.sub_id AND s.years='".$years."' AND s.dept_name='".$dept."' AND s.sub_name='".$subject."'");
+if($row1=mysqli_fetch_array($sql1)){
+    $sub_id=$row1['sub_id'];   
+    
+             $Aa0=$A1[$i];
+             $aj+=1;
+             $Aa1=$A2[$i];
+             $aj+=1;
+             $Aa2=$A3[$i];
+             $aj+=1;
+             $Aa3=$A4[$i];
+             $aj+=1;
+             $Aa4=$A5[$i];
+             $aj+=1;
+             $Aa5=$A6[$i];
+             $aj+=1;
+             $Aa6=$A7[$i];
+             $aj+=1;
+             $Aa7=$A8[$i];
+             $aj+=1;
+             $Aa8=$A9[$i];
+             $aj+=1;
+             $Aa9=$A10[$i];
+             $aj+=1;
+             $Aa10=$A11[$i];
+             $aj+=1;
+             if($aj<$_SESSION['nofprac']){
+             $Aa11=$A12[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa11=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa12=$A13[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa12=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa13=$A14[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa13=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa14=$A15[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa14=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa15=$A16[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa15=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa16=$A17[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa16=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa17=$A18[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa17=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa18=$A19[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa18=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa19=$A20[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa19=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa20=$A21[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa20=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa21=$A22[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa21=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa22=$A23[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa22=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa23=$A24[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa23=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa24=$A25[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa24=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa25=$A26[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa25=0; 
+             }
+             
+             if($aj<$_SESSION['nofprac']){
+             $Aa26=$A27[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa26=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa27=$A28[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa27=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa28=$A29[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa28=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa29=$A30[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa29=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa30=$A31[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa30=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa31=$A32[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa31=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa32=$A33[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa32=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa33=$A34[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa33=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa34=$A35[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa34=0; 
+             }
+            
+             $outof=$_SESSION['marksof'];
+            $nofprac=$_SESSION['nofprac'];
+                            
+           
+            mysqli_query($con,"UPDATE `comap_prac` SET `outof`='$outof',`p1`='$Aa0',`p2`='$Aa1',`p3`='$Aa2',`p4`='$Aa3',`p5`='$Aa4',`p6`='$Aa5',`p7`='$Aa6',`p8`='$Aa7',`p9`='$Aa8',`p10`='$Aa9',`p11`='$Aa10',`p12`='$Aa11',`p13`='$Aa12',`p14`='$Aa13',`p15`='$Aa14',`p16`='$Aa15',`p17`='$Aa16',`p18`='$Aa17',`p19`='$Aa18',`p20`='$Aa19',`p21`='$Aa20',`p22`='$Aa21',`p23`='$Aa22',`p24`='$Aa23',`p25`='$Aa24',`p26`='$Aa25',`p27`='$Aa26',`p28`='$Aa27',`p29`='$Aa28',`p30`='$Aa29',`p31`='$Aa30',`p32`='$Aa31',`p33`='$Aa32',`p34`='$Aa33',`p35`='$Aa34',`nofprac`='$nofprac' WHERE `sub_id`='$sub_id'");
+         
+        }
+        else{
+            $sql=mysqli_query($con,"select sub_id from subject where years='".$years."' AND dept_name='".$dept."' AND sub_name='".$subject."'");
+        if($row=mysqli_fetch_array($sql)){
+            $sub_id=$row['sub_id'];
+        }   
+             $Aa0=$A1[$i];
+             $aj+=1;
+             $Aa1=$A2[$i];
+             $aj+=1;
+             $Aa2=$A3[$i];
+             $aj+=1;
+             $Aa3=$A4[$i];
+             $aj+=1;
+             $Aa4=$A5[$i];
+             $aj+=1;
+             $Aa5=$A6[$i];
+             $aj+=1;
+             $Aa6=$A7[$i];
+             $aj+=1;
+             $Aa7=$A8[$i];
+             $aj+=1;
+             $Aa8=$A9[$i];
+             $aj+=1;
+             $Aa9=$A10[$i];
+             $aj+=1;
+             $Aa10=$A11[$i];
+             $aj+=1;
+             if($aj<$_SESSION['nofprac']){
+             $Aa11=$A12[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa11=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa12=$A13[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa12=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa13=$A14[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa13=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa14=$A15[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa14=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa15=$A16[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa15=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa16=$A17[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa16=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa17=$A18[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa17=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa18=$A19[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa18=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa19=$A20[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa19=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa20=$A21[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa20=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa21=$A22[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa21=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa22=$A23[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa22=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa23=$A24[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa23=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa24=$A25[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa24=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa25=$A26[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa25=0; 
+             }
+             
+             if($aj<$_SESSION['nofprac']){
+             $Aa26=$A27[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa26=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa27=$A28[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa27=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa28=$A29[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa28=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa29=$A30[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa29=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa30=$A31[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa30=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa31=$A32[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa31=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa32=$A33[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa32=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa33=$A34[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa33=0; 
+             }
+             if($aj<$_SESSION['nofprac']){
+             $Aa34=$A35[$i];
+                  $aj+=1;
+             }
+             else{
+                $Aa34=0; 
+             }
+            
+             $outof=$_SESSION['marksof'];
+            $nofprac=$_SESSION['nofprac'];
+            
+            mysqli_query($con,"INSERT INTO `comap_prac` (`comap_prac_id`, `sub_id`, `outof`, `p1`, `p2`, `p3`, `p4`, `p5`, `p6`, `p7`, `p8`, `p9`, `p10`, `p11`, `p12`, `p13`, `p14`, `p15`, `p16`, `p17`, `p18`, `p19`, `p20`, `p21`, `p22`, `p23`, `p24`, `p25`, `p26`, `p27`, `p28`, `p29`, `p30`, `p31`, `p32`, `p33`, `p34`,`p35`, `nofprac`) VALUES (NULL,'$sub_id','$outof','$Aa0','$Aa1','$Aa2','$Aa3','$Aa4','$Aa5','$Aa6','$Aa7','$Aa8','$Aa9','$Aa10','$Aa11','$Aa12','$Aa13','$Aa14','$Aa15','$Aa16','$Aa17','$Aa18','$Aa19','$Aa20','$Aa21','$Aa22','$Aa23','$Aa24','$Aa25','$Aa26','$Aa27','$Aa28','$Aa29','$Aa30','$Aa31','$Aa32','$Aa33','$Aa34','$nofprac')");
+        }
+        
+
+    echo '<script>setTimeout(function(){ location.href = "select-copo.php"; }, 1);</script>';
+}
+?>
+<html>
+   <head>
+       <meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta content="" name="description" />
+		<meta content="" name="author" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+   </head>
+    <body style="background-color:#42E93E;" ><br>
+       <div class="container-fluid container-fullw bg-white">
+            <div class="row">
+                <div class="col-md-12">
+                    <a class="btn btn-primary" href="select-copo.php"><span class="glyphicon glyphicon-arrow-left"></span> BACK</a>
+                </div>
+            </div>
+        </div>
+       <br>
+        <form align="center" method="post">
+        
+        <table border="5" align="center" style="background-color:white;">
+       <td>
+        <table border="5" align="center" style="background-color:white;">  
+        <?php   
+        $_SESSION['exampage']="Practical";
+        $class=$_SESSION['class'];
+        $subject=$_SESSION['subject'];
+        $exampage=$_SESSION['exampage'];
+        $years=$_SESSION['year'];
+        $nofprac=$_SESSION['nofprac'];
+        $marksof=$_SESSION['marksof'];
+        ?>
+          <thead>
+             <tr>
+               <td colspan="1" style="width:150px; height:130px;"><img src="../../images/vp1.png" alt="VP" style="width:150px; height:100px;"></td>
+               <th colspan="<?php echo $nofprac;?>" style="text-align:center;font-size:30px;">VIDYALANKAR POLYTECHNIC</th>
+              </tr>
+              <tr>
+                   <th></th>
+                   <th colspan="<?php echo $nofprac;?>" scope="colgroup"style="text-align:center;">Assign COs to Practicals</th>
+               </tr>
+               <tr>
+                <th></th> 
+               <?php for($i=1;$i<=$nofprac;$i++)
+                {
+               ?>
+                <th colspan="1">P<?php echo $i;?></th>
+                <?php
+                }
+                ?>
+               </tr>
+            </thead>
+            <tbody>
+            <?php
+                $count=0;
+                $sql=mysqli_query($con,"SELECT * FROM subject s,comap_prac c where s.sub_id=c.sub_id AND s.years='".$years."' AND s.dept_name='".$dept."' AND s.sub_name='".$subject."'");
+                if($row=mysqli_fetch_array($sql)){
+                ?>
+                <tr>
+                   <th></th>
+                    <?php 
+                    $count+=1;
+                    $j=0;
+                    for($i=0;$i<$nofprac;$i++)
+                       {
+                        $j+=1;
+                    ?>
+                    <td><input type="number"name="item_name<?php echo $i;?>[]"class="form-control item_name"style="width:75px" value="<?php echo $row['p'.$j.''];?>" autocomplete="off" /></td>   
+                    <?php
+                    }
+                    ?>
+                </tr>
+            <?php
+                }else{
+            $count=0;$i=0;
+            ?>
+                <tr>
+                    <th></th>
+                    <?php 
+                    $count+=1;
+                    for($i=0;$i<$nofprac;$i++)
+                       {
+                    ?>
+                    <td><input type="number"name="item_name<?php echo $i;?>[]"class="form-control item_name"style="width:75px" autocomplete="off" /></td>   
+                    <?php
+                    }
+                    ?>
+                </tr>
+            <?php  
+            }?>
+            </tbody>
+        </table><br>  
+           <table border="5" align="center" style="background-color:white;">
+            <thead>
+            <th colspan="2" style="text-align:center;width:948px;">Course Outcomes(<?php echo $years;?>)</th>
+                <tr>
+                    <th colspan="2" style="text-align:center;width:948px;">Courses(<?php echo $subject;?>) &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Class:<?php echo $class?></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $sql=mysqli_query($con,"SELECT * FROM `cosfull` WHERE  dept_name='".$dept."' AND sub_name='".$subject."' GROUP BY cosf_name");
+                while($row=mysqli_fetch_array($sql)){
+                ?>
+                <tr>
+                    <th style="text-align:center;width:150px;"><?php echo $row['cosf_name'];?></th>
+                   <th style="width:<?php echo 77 * $nofprac;?>px;"><?php echo $row['cosf_full'];?></th>
+                </tr>
+               <?php
+                }?>
+            </tbody>
+           </table></td>
+           </table>
+        <input type="submit" name="submit" class="btn btn-primary"value="<?php $sql=mysqli_query($con,"SELECT * FROM subject s,comap_prac c where s.sub_id=c.sub_id AND s.years='".$years."' AND s.dept_name='".$dept."' AND s.sub_name='".$subject."'");
+        $row=mysqli_fetch_array($sql); if($row==null) { echo "Submit"; } else{ echo "Update";  } ?>"/>
+        </form>
+    </body>
+</html>
