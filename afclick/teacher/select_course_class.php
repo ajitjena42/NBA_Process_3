@@ -115,18 +115,19 @@ if(isset($_POST['submit1']))
                                                     <h5 class="panel-title">Select class to Enable course exit form </h5>   <br>     
                                                     <?php
                                                         $ret=mysqli_query($con,"SELECT * FROM assignsubject WHERE teacher_id='".$_SESSION['dlogin']."' AND years='".$_SESSION['year']."' Group By class_name");
-                                                        while($row=mysqli_fetch_array($ret))
-                                                        {
-                                                        $sr=$row['class_name'];
-                                                        $up=strtoupper($sr);
-                                                        $pr=count($sr);
-                                                        for($i=0;$i<$pr;$i++)
-                                                        {?>
-                                                        <button type="submit" name="submit1" value="<?php  print_r($up);?>" class="btn btn-o btn-primary btn-lg btn-block">
-                                                        <?php print_r($up);?>
-                                                        </button><br>
-                                                        <?php }}
-                                                    ?> 
+                                                        foreach($ret as $row)
+														{
+															
+														$sr=$row['sub_name'];
+
+														$up=strtoupper($sr);
+														?>
+														<button type="submit" name="submit1" value="<?= $up?>" class="btn btn-o btn-primary btn-lg btn-block">
+														<?= $up?>
+														</button><br>
+
+														<?php }
+														?>
                                                 </div>
                                             </div>
                                         </div>

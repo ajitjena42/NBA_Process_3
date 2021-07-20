@@ -173,25 +173,21 @@ if(isset($_POST['submit4']))
                                                     Subject list of year <?php echo $_SESSION['year'] ?> of <?php echo $_SESSION['class'] ?> class 
 												</div>
 												<div class="panel-body">
-                                                    <?php
+													<?php
+													$ret=mysqli_query($con,"select * from assignsubject where teacher_id='".$_SESSION['dlogin']."' AND years='".$_SESSION['year']."' AND class_name='".$_SESSION['class']."'");
+													foreach($ret as $row)
+													{
+														
+													$sr=$row['sub_name'];
 
-                                                        $ret=mysqli_query($con,"select * from assignsubject where teacher_id='".$_SESSION['dlogin']."' AND years='".$_SESSION['year']."' AND class_name='".$_SESSION['class']."'");
-                                                        while($row=mysqli_fetch_array($ret))
-                                                        {
-                                                        $sr=$row['sub_name'];
-                                                        $up=strtoupper($sr);
-                                                        $pr=count($sr);
+													$up=strtoupper($sr);
+													?>
+													<button type="submit" name="submit1" value="<?= $up?>" class="btn btn-o btn-primary btn-lg btn-block">
+													<?= $up?>
+													</button><br>
 
-
-
-                                                        for($i=0;$i<$pr;$i++)
-                                                        {?>
-                                                        <button type="submit" name="submit1" value="<?php  print_r($up);?>" class="btn btn-o btn-primary btn-lg btn-block">
-                                                        <?php print_r($up);?>
-                                                        </button><br>
-
-                                                        <?php }}
-                                                    ?> 
+													<?php }
+													?>
                                                 </div>
                                             </div>
                                         </div>
